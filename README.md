@@ -1,8 +1,4 @@
-Python scripts used to train, run and visualize the ensembled models for prediction of postop RV failure in LVAD patients from pre-op echocardiograms. See paper for more details. Created by Nicolas Quach and Rohan Shad, MD Dec 2020. 
-
-The model consists of a two stream late-fusion 3D convolutional neural network transfer learned from a network pre-trained on the Echonet video set (Oayang et al. 2020). Transfer learning from a model pre-trained on a much larger dataset has been shown to improve generalizability and model performance, especially when the available training set for the task at hand is relatively small (as in our case).
-
-This implementation in Python is intended for use on GPU, and certain parts of the script can only be run on Nvidia GPU containing devices. Multithreading is implemented in several scripts for acceleration. Currently tested on Python 3.7.7, Tensorflow-gpu 2.1.0, Keras 2.3.1.
+Python scripts used to train, run and visualize the ensembled models for prediction of postop RV failure in LVAD patients from pre-op echocardiograms. See paper for more details. Created by Nicolas Quach and Rohan Shad, MD Dec 2020. The model consists of a two stream late-fusion 3D residual neural network. This implementation in Python is intended for use on GPU, and certain parts of the script can only be run on Nvidia GPU containing devices. Multithreading is implemented in several scripts for acceleration. Currently tested on Python 3.7.7, Tensorflow-gpu 2.1.0, Keras 2.3.1.
 
 ## Installation
 
@@ -77,7 +73,7 @@ $ python split_data.py --root=<full path to direc with DICOMs> --splitnum=<give 
 ```
 
 ### Pretraining Resnet152 on Echonet
-The Echonet dataset was downloaded and optical flow was calculated using the above scripts. You will need to pretrain a greyscale and an optical flow Resnet152:
+The Echonet dataset was downloaded and optical flow was calculated using the above scripts. We pre-trained on kinetics-600 using a similar method. You will need to pretrain a greyscale and an optical flow Resnet152:
 ```
 $ source activate tf_gpu
 $ python pretrain_greyscale.py --root=<full path to direc w/ Echonet data> --ckptdir=<fullpath to checkpoint direc> {-r optional flag to for training from scratch}
