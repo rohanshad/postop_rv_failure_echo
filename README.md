@@ -1,5 +1,7 @@
 Python scripts used to train, run and visualize the ensembled models for prediction of postop RV failure in LVAD patients from pre-op echocardiograms. See paper for more details. Created by Nicolas Quach and Rohan Shad, MD Dec 2020. The model consists of a two stream late-fusion 3D residual neural network. This implementation in Python is intended for use on GPU, and certain parts of the script can only be run on Nvidia GPU containing devices. Multithreading is implemented in several scripts for acceleration. Currently tested on Python 3.7.7, Tensorflow-gpu 2.1.0, Keras 2.3.1.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5161867.svg)](https://doi.org/10.5281/zenodo.5161867)
+
 ## Installation
 
 The requirements of the various scripts is very complex and is managed using 3 different Anaconda virtual environments. These instructions assume you have Git and Anaconda installed. If not, install them before proceeding.
